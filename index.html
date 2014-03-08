@@ -60,6 +60,13 @@ $ git checkout gh-pages
     </div>
     <script src="javascripts/scale.fix.js"></script>
     <script>
+      //preload imgs
+      for(i=1;i<6;i++)
+      {
+        var img = new Image();
+        img.src = 'img/screen' + i + '.png';
+      }
+
       var actualScreen = 1;
       setInterval(function(){
           actualScreen++;
