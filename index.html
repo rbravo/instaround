@@ -16,31 +16,75 @@
     <div class="wrapper">
       <header>
         <div style="width:366px;height:700px;background: url('img/phone.png') no-repeat;">
-          <img src="img/screen0.png" id="mainImg" style="position:relative;top:57px;left:26px;transition: opacity linear 0.5s;"/>
+          <div style="background:#000;top:57px;left:26px;position:relative;width:316px;height:561px;">
+            <img src="img/screen0.png" id="mainImg" style="position:relative;transition: opacity linear 0.5s;"/>
+          </div>
         </div>
       </header>
       <section>
         
-        <h1 style="padding-top:30px;color:#428bca;">Instaround</h1>
-        <p><b>Latest Instagram posts around your location</b></p>
+        <h1 style="padding-top:0px;color:#428bca;display:inline-block;">
+          <img src="img/icon.png" style="width: 40px;position: relative;top: 8px;margin-right: 10px;" />Instaround
+        </h1>
+        <select id="lang" style="float: right;position: relative;top: 14px;height: 31px;" onchange="changeLang()">
+          <option value="English">English</option>
+          <option value="Portuguese">Português</option>
+        </select>
 
-        <p>O Instaround permite que você localize num mapa todas as fotos mais recentes postadas no Instagram. Ou seja, agora é possível saber de onde as fotos foram realmente postadas, a começar por quem está mais próximo de você.</p>
+        <!-- ----------- INGLES ----------- -->
 
-        <p>Descubra se aquela festa que você quer ir está bem frequentada. Com o Instaround você pode buscar qualquer lugar e as fotos que foram postadas de lá.
-        Saiba quais amigos estão ao seu redor. Conheça pessoas perto de você. Divirta-se com o Instaround.</p>
+        <div class="txContent" id="txEnglish">
+          <p><b>Latest Instagram posts around your location</b></p>
 
-        <h3>Features</h3>
+          <p>O Instaround permite que você localize num mapa todas as fotos mais recentes postadas no Instagram. Ou seja, agora é possível saber de onde as fotos foram realmente postadas, a começar por quem está mais próximo de você.</p>
 
-        <ul>
-          <li>Veja as fotos que foram postadas no Instagram próximas da sua localização</li>
-          <li>Veja as fotos que foram postadas no Instagram próximas da sua localização</li>
-          <li>Torne o seu feed do Instagram mais legal com a informação de onde cada foto foi postada</li>
-          <li>Use o Instagram através do Instaround e conheça gente interessante perto de você</li>
-        </ul>
+          <p>Descubra se aquela festa que você quer ir está bem frequentada. Com o Instaround você pode buscar qualquer lugar e as fotos que foram postadas de lá.
+          Saiba quais amigos estão ao seu redor. Conheça pessoas perto de você. Divirta-se com o Instaround.</p>
 
-        <h3>Download it</h3>
+          <h3>Features</h3>
 
-        <p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+          <ul>
+            <li>Veja as fotos que foram postadas no Instagram próximas da sua localização</li>
+            <li>Veja as fotos que foram postadas no Instagram próximas da sua localização</li>
+            <li>Torne o seu feed do Instagram mais legal com a informação de onde cada foto foi postada</li>
+            <li>Use o Instagram através do Instaround e conheça gente interessante perto de você</li>
+          </ul>
+
+          <h3>Download it</h3>
+
+          <div style="text-align:center;">
+            <img src="img/appIphone.png"/>
+            <img src="img/appAndroid.png"/>
+            <img src="img/appWin.png"/>
+          </div>
+        </div>
+
+        <!-- ----------- PORTUGUES ----------- -->
+
+        <div class="txContent" id="txPortuguese" style="display:none;">
+          <p><b>Últimos posts do Instagram ao seu redor</b></p>
+
+          <p>O Instaround permite que você localize num mapa todas as fotos mais recentes postadas no Instagram. Ou seja, agora é possível saber de onde as fotos foram realmente postadas, a começar por quem está mais próximo de você.</p>
+
+          <p>Descubra se aquela festa que você quer ir está bem frequentada. Com o Instaround você pode buscar qualquer lugar e as fotos que foram postadas de lá.
+          Saiba quais amigos estão ao seu redor. Conheça pessoas perto de você. Divirta-se com o Instaround.</p>
+
+          <h3>Features</h3>
+
+          <ul>
+            <li>Veja as fotos que foram postadas no Instagram próximas da sua localização</li>
+            <li>Veja as fotos que foram postadas no Instagram próximas da sua localização</li>
+            <li>Torne o seu feed do Instagram mais legal com a informação de onde cada foto foi postada</li>
+            <li>Use o Instagram através do Instaround e conheça gente interessante perto de você</li>
+          </ul>
+
+          <h3>Download it</h3>
+          <div style="text-align:center;">
+            <img src="img/appIphone.png"/>
+            <img src="img/appAndroid.png"/>
+            <img src="img/appWin.png"/>
+          </div>
+        </div>
       </section>
       <footer>
         <p style="margin: 25px 0 0 0;width: 450px;text-align: center;position: relative;top: 44px;"><b>Instaround</b> is maintained by <a href="https://github.com/rbravo">rbravo</a></p>
@@ -49,10 +93,12 @@
     <script src="javascripts/scale.fix.js"></script>
     <script>
       //preload imgs
+      var imsss = [];
       for(i=1;i<6;i++)
       {
         var img = new Image();
         img.src = 'img/screen' + i + '.png';
+        imsss.push(img);
       }
 
       var actualScreen = 0;
@@ -67,6 +113,14 @@
           },500);
           
       },4000);
+
+      function changeLang(){
+        var txs = document.getElementsByClassName('txContent');
+        for (var i = txs.length - 1; i >= 0; i--) {
+          txs[i].style.display = 'none';
+        };
+        document.getElementById('tx' + document.getElementById('lang').value).style.display = 'block';
+      }
     </script>
   </body>
 </html>
